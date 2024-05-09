@@ -1,17 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const bookController = require('./controllers/bookController');
 
-//User routes
-const userController = require('./controllers/userController');
-const userMiddleware = require('./middlewares/userMiddleware');
-
-router.post('/user', userMiddleware.validateCreateUser, userController.createUser);
-
-//auth routes
-const authController = require('./controllers/authController');
-const authMiddleware = require('./middlewares/authMiddleware');
-
-router.post('/login', authMiddleware.validadeAuth, authController.authLogin);
+router.post('/book', bookController.createBook);
 
 
 module.exports = router;
